@@ -67,7 +67,7 @@ body {
 dialog[open] {
   display: flex;
   margin: 10rem auto 0 auto;
-  padding: 6rem;
+  padding: 5rem;
   font-size: 1.8rem;
   border: none;
   border-radius: 15px;
@@ -81,10 +81,10 @@ dialog[open] form {
   align-items: center;
   gap: 1.7rem;
 }
-button {
+form button {
   background-color: #007fff;
   padding: 0.7rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #f7f4ea;
   border-radius: 16px;
 }
