@@ -23,6 +23,14 @@ const library = [
     add: false,
     index: 1,
   },
+  {
+    book: "Thinking, Fast and Slow",
+    author: "Daniel Kahneman",
+    pages: 499,
+    read: false,
+    add: false,
+    index: 2,
+  },
 ];
 btn;
 function add(book, author, pages) {
@@ -37,10 +45,13 @@ function display() {
   library.forEach((obj) => {
     const div = document.createElement("div");
     const header = document.createElement("h2");
+    header.classList.add("repair");
     header.innerText = obj.book;
     const pages = document.createElement("p");
+    pages.classList.add("repair");
     pages.innerText = `No. of pages :${obj.pages}`;
     const author = document.createElement("p");
+    author.classList.add("repair");
     author.innerText = `By : ${obj.author}`;
     const buttons = document.createElement("div");
     const link1 = document.createElement("img");
