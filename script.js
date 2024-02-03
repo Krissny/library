@@ -18,7 +18,7 @@ const library = [
   {
     book: "Man's Search for Meaning",
     author: "Viktor Frankl",
-    pages: 1000,
+    pages: 200,
     read: false,
     add: false,
     index: 1,
