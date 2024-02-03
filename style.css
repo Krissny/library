@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.box {
+  display: grid;
+  font-size: 1.5rem;
+  padding: 1em;
+  width: 15rem;
+  border-radius: 16px;
+  background-color: #222222;
+  color: white;
+}
+body {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #c59fc9;
+  border-radius: 3em;
+  gap: 2rem;
+}
+.header {
+  background-color: #f7f4ea;
+  padding: 0.8rem;
+  color: black;
+  border-radius: 10px;
+}
+
+.add {
+  background-color: #007fff;
+  padding: 0.7rem;
+  font-size: 1.5rem;
+  color: #f7f4ea;
+  border-radius: 16px;
+}
+.icon-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 20px;
+}
+.icon {
+  width: 2rem;
+}
+.icon1 {
+  filter: invert(1);
+}
+.icon:hover {
+  cursor: pointer;
+}
+
+/* form */
+dialog[open] {
+  display: flex;
+  margin: 10rem auto 0 auto;
+  padding: 6rem;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 15px;
+  background-color: #f7f4ea;
+}
+
+dialog[open] form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1.7rem;
+}
+button {
+  background-color: #007fff;
+  padding: 0.7rem;
+  font-size: 1.1rem;
+  color: #f7f4ea;
+  border-radius: 16px;
+}
+form input {
+  padding: 0.5rem;
+  font-size: 1.8rem;
+  width: 100%;
+}
