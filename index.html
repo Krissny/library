@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Library</h1>
+    </div>
+    <div class="interact">
+      <button class="add">New book</button>
+    </div>
+    <div class="main"></div>
+    <dialog id="newBook">
+      <form action="">
+        <div>
+          <div>
+            <label for="Book">Book's Title</label>
+          </div>
+          <div>
+            <input type="text" id="Book" />
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <label for="Author">Author</label>
+          </div>
+          <div>
+            <input type="text" id="Author" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label for="Pages">No. of pages</label>
+          </div>
+          <div>
+            <input type="number" id="Pages" />
+          </div>
+        </div>
+
+        <div>
+          <button id="cancel">Cancel</button>
+          <button id="confirm" type="submit">Submit</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
 </html>
