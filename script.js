@@ -6,33 +6,48 @@ const cancel = document.querySelector("#cancel");
 const bookname = document.querySelector("#Book");
 const authorname = document.querySelector("#Author");
 const noPaages = document.querySelector("#Pages");
-const library = [
-  {
-    book: "Bhagvad Gita",
-    author: "Veda Vyasa",
-    pages: 730,
-    add: false,
-    read: false,
-    index: 0,
-  },
-  {
-    book: "Man's Search for Meaning",
-    author: "Viktor Frankl",
-    pages: 200,
-    read: false,
-    add: false,
-    index: 1,
-  },
-  {
-    book: "Thinking, Fast and Slow",
-    author: "Daniel Kahneman",
-    pages: 499,
-    read: false,
-    add: false,
-    index: 2,
-  },
+
+let library = [
+  // {
+  //   book: "Bhagvad Gita",
+  //   author: "Veda Vyasa",
+  //   pages: 730,
+  //   add: false,
+  //   read: false,
+  //   index: 0,
+  // },
+  // {
+  //   book: "Man's Search for Meaning",
+  //   author: "Viktor Frankl",
+  //   pages: 200,
+  //   read: false,
+  //   add: false,
+  //   index: 1,
+  // },
+  // {
+  //   book: "Thinking, Fast and Slow",
+  //   author: "Daniel Kahneman",
+  //   pages: 499,
+  //   read: false,
+  //   add: false,
+  //   index: 2,
+  // },
 ];
-btn;
+function loadFromStorage() {
+  let i = library.length;
+  while (localStorage.getItem(`${i}`) != null) {
+    library.push(JSON.parse(localStorage.getItem(`${i}`)));
+    i++;
+  }
+  display();
+}
+function repopulate() {
+  localStorage.clear();
+  console.log("called");
+  library.forEach((obj, index) => {
+    localStorage.setItem(`${index}`, JSON.stringify(obj));
+  });
+}
 function add(book, author, pages) {
   this.book = book;
   this.author = author;
@@ -42,7 +57,7 @@ function add(book, author, pages) {
   this.index = library.length;
 }
 function display() {
-  library.forEach((obj) => {
+  library.forEach((obj, index) => {
     const div = document.createElement("div");
     const header = document.createElement("h2");
     header.classList.add("repair");
@@ -60,7 +75,13 @@ function display() {
     link1.src = "img/delete.svg";
     link1.addEventListener("click", () => {
       obj.add = false;
-      library.splice(obj.index, 1);
+      if (library.length == 1) {
+        library = [];
+        localStorage.clear();
+      } else {
+        library.splice(index, 1);
+        repopulate();
+      }
       main.removeChild(div);
     });
     const link2 = document.createElement("img");
@@ -89,6 +110,10 @@ btn.addEventListener("click", () => {
 });
 
 submit.addEventListener("click", (event) => {
+  if (bookname.value == "") {
+    alert("Book title is empty");
+    return;
+  }
   event.preventDefault();
   getValue();
   dialog.close();
@@ -102,10 +127,11 @@ function getValue() {
   let aut = authorname.value;
   let pag = noPaages.value;
   const newbook = new add(name, aut, pag);
+  localStorage.setItem(`${library.length}`, JSON.stringify(newbook));
   library.push(newbook);
   display();
 }
 
 window.addEventListener("load", () => {
-  display();
+  loadFromStorage();
 });
